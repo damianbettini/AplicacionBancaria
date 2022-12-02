@@ -7,18 +7,21 @@ public class Servicios {
     public static void Menu() {
         System.out.println("Bienvenido al Banco Roma");
         System.out.println("En que podemos ayudarlo?");
+        System.out.println("Opcion 1: crear cuenta");
+        System.out.println("Opcion 2: ingresar a mi cuenta");
+        System.out.println("Opcion 3: Quiero salir");
         Scanner leer = new Scanner(System.in);
         int opcion = leer.nextInt();
 
         switch (opcion) {
             case 1:
-                System.out.println("Quiero crear una cuenta de banco");
+                System.out.println("Entendido, vamos a necesitar los siguietes datos para crear su cuenta: ");
                 break;
             case 2:
-                System.out.println("Quiero ingresar a mi cuenta de banco");
+                System.out.println("Por favor ingrese su usuario y luego su contraseña");
                 break;
             case 3:
-                System.out.println("Quiero salir");
+                System.out.println("De acuerdo");
                 break;
             default:
                 System.out.println("Esa opcion no es correcta");
@@ -33,22 +36,33 @@ public class Servicios {
                 System.out.println("Tu edad es " + edad);
             } catch (Exception e) {
                 System.out.println("Por favor ingresar un numero correcto");
-            } finally {
-                leer2.close();
             }
             if (edad >= 18) {
-                System.out.println("Ingrese el usuario que quiere crear");
+                System.out.println("Ingrese su nombre");
                 Scanner leer3 = new Scanner(System.in);
-                String usuario = leer3.nextLine();
-                System.out.println("Ingrese la clave que quiere crear");
+                String nombre = leer3.nextLine();
+                System.out.println("Ingrese su apellido");
                 Scanner leer4 = new Scanner(System.in);
-                String clave = leer4.nextLine();
+                String apellido = leer4.nextLine();
+                System.out.println("Ingrese su direccion de domicilio actual");
+                Scanner leer5 = new Scanner(System.in);
+                String direccion = leer5.nextLine();
+                System.out.println("Ingrese su numero de celular");
+                Scanner leer6 = new Scanner(System.in);
+                String numero = leer6.nextLine();
+                System.out.println("Buenisimo! Solo unos datos mas");
+                System.out.println("Ingrese su nuevo usuario");
+                Scanner leer7 = new Scanner(System.in);
+                String usuario = leer7.nextLine();
+                System.out.println("Ingrese su nueva clave");
+                Scanner leer8 = new Scanner(System.in);
+                String clave = leer8.nextLine();
             } else {
                 System.out.println("No tienes la edad suficiente para crear una cuenta bancaria, lo sentimos");
             }
         }
 
-        if (opcion == 2){
+        if (opcion == 2) {
             System.out.println("Ingrese su usuario");
             Scanner leer2 = new Scanner(System.in);
             String usuario = leer2.nextLine();
@@ -58,10 +72,15 @@ public class Servicios {
 
         }
 
+        if (opcion == 3) {
+            System.out.println("Nos vemos,que tengas un buen dia!");
+        }
+
     }
 }
 
-  /*  public static void CrearCliente(){
+
+    /*public static void CrearCliente(){
         Cliente p = new Cliente();
         p.getName();
         p.getApellido();
@@ -77,5 +96,4 @@ public class Servicios {
     }
 
 
-}
-*/
+}*/
