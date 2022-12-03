@@ -1,31 +1,23 @@
 package proyecto2;
 
-import java.util.ArrayList;
-
 public class Cliente extends Persona {
 
     private Integer numeroTarjeta;
     private Integer numeroCliente;
     private String usuario;
     private String clave;
-    private ArrayList<Persona> nuevasPersonas;
 
-    public Cliente (Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave){
+    public Cliente (){}
+
+
+
+    public Cliente(String nombre, String apellido, int edad, String direccion, Integer numeroCelular, String correo, Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave) {
+        super(nombre, apellido, edad, direccion, numeroCelular, correo);
         this.numeroTarjeta = numeroTarjeta;
         this.numeroCliente = numeroCliente;
         this.usuario = usuario;
         this.clave = clave;
     }
-
-
-    public Cliente (){
-        nuevasPersonas = new ArrayList<Persona>();
-    }
-
-    public void addnuevasPersona(Persona p){
-        nuevasPersonas.add(p);
-    }
-
 
     public Integer getNumeroTarjeta() {
         return numeroTarjeta;
@@ -59,14 +51,25 @@ public class Cliente extends Persona {
         this.clave = clave;
     }
 
-    public ArrayList<Persona> getNuevasPersonas() {
-        return nuevasPersonas;
-    }
 
-    public void setNuevasPersonas() {
-        this.nuevasPersonas = nuevasPersonas;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "numeroTarjeta=" + numeroTarjeta +
+                ", numeroCliente=" + numeroCliente +
+                ", usuario='" + usuario + '\'' +
+                ", clave='" + clave + '\'' +
+                ", name='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", direccion='" + direccion + '\'' +
+                ", numeroCelular=" + numeroCelular +
+                ", correo='" + correo + '\'' +
+                '}';
     }
 }
+
+
 
 
 
