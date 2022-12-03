@@ -2,40 +2,33 @@ package proyecto2;
 
 public class Persona {
 
-    private String name;
-    private String apellido;
-    private String direccion;
+    protected String nombre;
+    protected String apellido;
 
-    private Integer numeroCelular
-            ;
-    private String correo;
+    protected int edad;
+    protected String direccion;
 
-    private Cliente numeroTarjeta;
-    private Cliente numeroCliente;
-    private Cliente usuario;
-    private Cliente clave;
+    protected Integer numeroCelular;
+    protected String correo;
+
 
     public Persona (){}
 
-    public Persona(String name, String apellido, String direccion, Integer numeroCelular, String correo, Cliente numeroTarjeta,
-                   Cliente numeroCliente, Cliente usuario, Cliente clave) {
-        this.name = name;
+    public Persona(String nombre, String apellido, int edad, String direccion, Integer numeroCelular, String correo) {
+        this.nombre = nombre;
         this.apellido = apellido;
+        this.edad= edad;
         this.direccion = direccion;
         this.numeroCelular = numeroCelular;
         this.correo = correo;
-        this.numeroTarjeta = numeroTarjeta;
-        this.numeroCliente = numeroCliente;
-        this.usuario = usuario;
-        this.clave = clave;
     }
 
     public String getName() {
-        return name;
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApellido() {
@@ -44,6 +37,14 @@ public class Persona {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     public String getDireccion() {
@@ -70,9 +71,17 @@ public class Persona {
         this.correo = correo;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "name='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", direccion='" + direccion + '\'' +
+                ", numeroCelular=" + numeroCelular +
+                ", correo='" + correo + '\'' +
+                '}';
+    }
 }
 
 
