@@ -1,6 +1,4 @@
-package proyecto2;
-
-import java.util.ArrayList;
+package Entidades;
 
 public class Cliente extends Persona {
 
@@ -8,24 +6,20 @@ public class Cliente extends Persona {
     private Integer numeroCliente;
     private String usuario;
     private String clave;
-    private ArrayList<Persona> nuevasPersonas;
+    private Integer montoTarjeta;
 
-    public Cliente (Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave){
+    public Cliente (){}
+
+
+
+    public Cliente(String nombre, String apellido, int edad, String direccion, Integer numeroCelular, String correo, Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave, Integer montoTarjeta) {
+        super(nombre, apellido, edad, direccion, numeroCelular, correo);
         this.numeroTarjeta = numeroTarjeta;
         this.numeroCliente = numeroCliente;
         this.usuario = usuario;
         this.clave = clave;
+        this.montoTarjeta = montoTarjeta;
     }
-
-
-    public Cliente (){
-        nuevasPersonas = new ArrayList<Persona>();
-    }
-
-    public void addnuevasPersona(Persona p){
-        nuevasPersonas.add(p);
-    }
-
 
     public Integer getNumeroTarjeta() {
         return numeroTarjeta;
@@ -59,14 +53,27 @@ public class Cliente extends Persona {
         this.clave = clave;
     }
 
-    public ArrayList<Persona> getNuevasPersonas() {
-        return nuevasPersonas;
+    public Integer getMontoTarjeta() {
+        return montoTarjeta;
     }
 
-    public void setNuevasPersonas() {
-        this.nuevasPersonas = nuevasPersonas;
+    public void setMontoTarjeta(Integer montoTarjeta) {
+        this.montoTarjeta = montoTarjeta;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "numeroTarjeta=" + numeroTarjeta +
+                ", numeroCliente=" + numeroCliente +
+                ", usuario='" + usuario + '\'' +
+                ", clave='" + clave + '\'' +
+                ", montoTarjeta=" + montoTarjeta +
+                '}';
     }
 }
+
+
 
 
 
