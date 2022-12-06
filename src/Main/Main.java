@@ -1,4 +1,4 @@
-package Entidades;
+package Main;
 
 import java.util.Scanner;
 
@@ -14,10 +14,10 @@ public class Main {
 
     }
 
-    private static void menu() {
-
+    public static void menu() {
         Scanner leer = new Scanner(System.in);
         int opcion;
+        usuariosClientes();
 
         do {
             System.out.println("Bienvenido al Banco Roma");
@@ -36,8 +36,7 @@ public class Main {
                 case 2:
                     System.out.println("Por favor ingrese su usuario y luego su contraseña");
                     validarCuenta();
-
-
+                    tipoMovimiento();
                     break;
                 case 3:
                     System.out.println("De acuerdo, nos vemos!");
