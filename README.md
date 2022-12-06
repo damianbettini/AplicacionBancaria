@@ -1,2 +1,2 @@
 # AplicacionBancaria
-Mi Primer Proyec
+Mi Primer Proyecto
