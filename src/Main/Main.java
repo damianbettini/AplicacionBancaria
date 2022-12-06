@@ -3,7 +3,7 @@ package Main;
 import java.util.Scanner;
 
 
-import static Servicios.Funciones.*;
+import static Entidades.Movimientos.Funciones.*;
 
 
 public class Main {
@@ -36,7 +36,7 @@ public class Main {
                 case 2:
                     System.out.println("Por favor ingrese su usuario y luego su contraseña");
                     validarCuenta();
-                    tipoMovimiento();
+
                     break;
                 case 3:
                     System.out.println("De acuerdo, nos vemos!");
