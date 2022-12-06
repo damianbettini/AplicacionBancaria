@@ -1,4 +1,4 @@
-package proyecto2;
+package Entidades;
 
 public class Movimientos {
 
@@ -30,6 +30,16 @@ public class Movimientos {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Movimientos{" +
+                "tipoMovimiento='" + tipoMovimiento + '\'' +
+                ", fechaMovimiento='" + fechaMovimiento + '\'' +
+                ", monto=" + monto +
+                '}';
     }
 }
 

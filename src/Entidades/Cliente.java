@@ -1,4 +1,4 @@
-package proyecto2;
+package Entidades;
 
 public class Cliente extends Persona {
 
@@ -6,17 +6,19 @@ public class Cliente extends Persona {
     private Integer numeroCliente;
     private String usuario;
     private String clave;
+    private Integer montoTarjeta;
 
     public Cliente (){}
 
 
 
-    public Cliente(String nombre, String apellido, int edad, String direccion, Integer numeroCelular, String correo, Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave) {
+    public Cliente(String nombre, String apellido, int edad, String direccion, Integer numeroCelular, String correo, Integer numeroTarjeta, Integer numeroCliente, String usuario, String clave, Integer montoTarjeta) {
         super(nombre, apellido, edad, direccion, numeroCelular, correo);
         this.numeroTarjeta = numeroTarjeta;
         this.numeroCliente = numeroCliente;
         this.usuario = usuario;
         this.clave = clave;
+        this.montoTarjeta = montoTarjeta;
     }
 
     public Integer getNumeroTarjeta() {
@@ -51,6 +53,13 @@ public class Cliente extends Persona {
         this.clave = clave;
     }
 
+    public Integer getMontoTarjeta() {
+        return montoTarjeta;
+    }
+
+    public void setMontoTarjeta(Integer montoTarjeta) {
+        this.montoTarjeta = montoTarjeta;
+    }
 
     @Override
     public String toString() {
@@ -59,12 +68,7 @@ public class Cliente extends Persona {
                 ", numeroCliente=" + numeroCliente +
                 ", usuario='" + usuario + '\'' +
                 ", clave='" + clave + '\'' +
-                ", name='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", direccion='" + direccion + '\'' +
-                ", numeroCelular=" + numeroCelular +
-                ", correo='" + correo + '\'' +
+                ", montoTarjeta=" + montoTarjeta +
                 '}';
     }
 }
