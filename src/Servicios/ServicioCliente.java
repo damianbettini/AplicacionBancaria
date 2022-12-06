@@ -1,58 +1,50 @@
-package Entidades;
+package Servicios;
+
+import Entidades.Cliente;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Movimientos {
+public class ServicioCliente {
 
-    private String tipoMovimiento;
-    private String fechaMovimiento;
-    private double monto;
+        private  Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        private  ArrayList<Cliente> nuevosClientes = new ArrayList<>();
+        public void menu() {
+            Scanner leer = new Scanner(System.in);
+            int opcion;
+            usuariosClientes();
 
-    public Movimientos() {
-    }
+            do {
+                System.out.println("Bienvenido al Banco Roma");
+                System.out.println("En que podemos ayudarlo?");
+                System.out.println("Opcion 1: crear cuenta");
+                System.out.println("Opcion 2: ingresar a mi cuenta");
+                System.out.println("Opcion 3: Quiero salir");
+                opcion = leer.nextInt();
 
-    public String getTipoMovimiento() {
-        return tipoMovimiento;
-    }
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Entendido, vamos a necesitar los siguietes datos para crear su cuenta: ");
+                        if (esValido()) {
+                            guardarClientes();}
+                        break;
+                    case 2:
+                        System.out.println("Por favor ingrese su usuario y luego su contraseña");
+                        validarCuenta();
 
-    public void setTipoMovimiento(String tipoMovimiento) {
-        this.tipoMovimiento = tipoMovimiento;
-    }
+                        break;
+                    case 3:
+                        System.out.println("De acuerdo, nos vemos!");
+                        break;
+                    default:
+                        System.out.println("Esa opcion no es correcta por lo tanto vas a salir de la pagina del banco");
+                        break;
+                }
 
-    public String getFechaMovimiento() {
-        return fechaMovimiento;
-    }
+            } while (opcion != 3);
+        }
 
-    public void setFechaMovimiento(String fechaMovimiento) {
-        this.fechaMovimiento = fechaMovimiento;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Movimientos{" +
-                "tipoMovimiento='" + tipoMovimiento + '\'' +
-                ", fechaMovimiento='" + fechaMovimiento + '\'' +
-                ", monto=" + monto +
-                '}';
-    }
-
-    public static class Funciones {
-
-        private static Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
-        private static ArrayList<Cliente> nuevosClientes = new ArrayList<>();
-
-        public static boolean esValido() {
+        public  boolean esValido() {
             boolean resultado = false;
             int edad;
             System.out.println("Ingresar edad");
@@ -66,7 +58,7 @@ public class Movimientos {
             return resultado;
         }
 
-        public static Cliente crearCliente() {
+        public  Cliente crearCliente() {
             Cliente cliente = new Cliente();
             System.out.println("Ingresar nombre");
             cliente.setNombre(leer.next());
@@ -89,7 +81,7 @@ public class Movimientos {
             return cliente;
         }
 
-        public static void usuariosClientes() {
+        public  void usuariosClientes() {
             nuevosClientes.add(new Cliente("Rosana", "Ferrari", 45, "Buenos Aires", 1189458713,
                     "rosanaFerrari@gmail.com", 478445789, 01, "rosana2022", "rosanaferrari", 450));
             nuevosClientes.add(new Cliente("Alejandro", "Beatriz", 30, "Catamarca", 1113124789,
@@ -98,14 +90,13 @@ public class Movimientos {
                     "carlosrodriguez@gmail.com", 445789, 01, "carlos_2021", "carlos1968", 1200));
         }
 
-        public static void guardarClientes() {
+        public  void guardarClientes() {
             Cliente cliente = crearCliente();
             nuevosClientes.add(cliente);
             System.out.println("Su usuario fue creado correctamente");
         }
 
-        public static void validarCuenta() {
-            Cuentas cuenta = new Cuentas();
+        public  void validarCuenta() {
             System.out.println("Ingrese su usuario");
             String usuario = leer.next();
             System.out.println("Por favor ingrese su clave");
@@ -120,7 +111,7 @@ public class Movimientos {
             }
         }
 
-        public static void tipoMovimiento(Cliente c) {
+        public  void tipoMovimiento(Cliente c) {
             Integer movimiento;
             do {
 
@@ -155,7 +146,7 @@ public class Movimientos {
 
         }
 
-        public static void depositarDinero(Cliente cliente) {
+        public  void depositarDinero(Cliente cliente) {
             Integer dinero;
             dinero = leer.nextInt();
             cliente.setMontoTarjeta((cliente.getMontoTarjeta() + dinero));
@@ -163,7 +154,7 @@ public class Movimientos {
             tipoMovimiento(cliente);
         }
 
-        public static void transferirDinero(Cliente cliente) {
+        public  void transferirDinero(Cliente cliente) {
             String aliasUsuario = leer.next();
             System.out.println("Cual es el monto que desea transferir?");
             Integer monto = leer.nextInt();
@@ -180,14 +171,14 @@ public class Movimientos {
 
         }
 
-        public static void extraerDinero(Cliente cliente) {
+        public  void extraerDinero(Cliente cliente) {
             Integer dinero;
             dinero = leer.nextInt();
             cliente.setMontoTarjeta(cliente.getMontoTarjeta() - dinero);
             System.out.println("El dinero actual de la cuenta es " + cliente.getMontoTarjeta());
         }
 
-    }
+
 }
 
 
