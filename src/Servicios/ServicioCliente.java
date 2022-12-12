@@ -47,38 +47,55 @@ public class ServicioCliente {
         public  boolean esValido() {
             boolean resultado = false;
             int edad;
-            System.out.println("Ingresar edad");
-            edad = leer.nextInt();
-            if (edad >= 18) {
-                resultado = true;
-                System.out.println("Perfecto, vamos a necesitar unos datos mas para crear tu cuenta:");
-            } else {
-                System.out.println("Lo sentimos pero no puede crear una cuenta ya que es menor de edad");
+            try{
+                System.out.println("Ingresar edad");
+                edad = leer.nextInt();
+                if (edad >= 18 && edad<=110) {
+                    resultado = true;
+                    System.out.println("Perfecto, vamos a necesitar unos datos mas para crear tu cuenta:");
+                } else {
+                    System.out.println("Lo sentimos pero no puede crear una cuenta ya que su edad no cumple el requisito necesario para crear una cuenta");
+                }
+            } catch (Exception e){
+                System.out.println("La edad ingresada no es correcta, por favor intente nuevamente");
+                leer.next();
             }
             return resultado;
         }
 
         public  Cliente crearCliente() {
-            Cliente cliente = new Cliente();
-            System.out.println("Ingresar nombre");
-            cliente.setNombre(leer.next());
-            System.out.println("Ingrese su apellido");
-            cliente.setApellido(leer.next());
-            System.out.println("Por favor valide su edad nuevamente");
-            cliente.setEdad(leer.nextInt());
-            System.out.println("Ingrese la direccion de su domicilio");
-            cliente.setDireccion(leer.next());
-            System.out.println("Ingrese su numero de celular");
-            cliente.setNumeroCelular(leer.nextInt());
-            System.out.println("Ingrese su correo");
-            cliente.setCorreo(leer.next());
-            System.out.println("Ingrese su usuario");
-            cliente.setUsuario(leer.next());
-            System.out.println("Ingrese su clave");
-            cliente.setClave(leer.next());
-            System.out.println("Ingrese el monto que va a depositar");
-            cliente.setMontoTarjeta(leer.nextInt());
-            return cliente;
+            boolean validarDatos = true;
+            do{
+                try {
+                    Cliente cliente = new Cliente();
+                    System.out.println("Ingresar nombre");
+                    cliente.setNombre(leer.next());
+                    System.out.println("Ingrese su apellido");
+                    cliente.setApellido(leer.next());
+                    System.out.println("Por favor valide su edad nuevamente");
+                    cliente.setEdad(leer.nextInt());
+                    System.out.println("Ingrese la direccion de su domicilio");
+                    cliente.setDireccion(leer.next());
+                    System.out.println("Ingrese su numero de celular");
+                    cliente.setNumeroCelular(leer.nextInt());
+                    System.out.println("Ingrese su correo");
+                    cliente.setCorreo(leer.next());
+                    System.out.println("Ingrese su usuario");
+                    cliente.setUsuario(leer.next());
+                    System.out.println("Ingrese su clave");
+                    cliente.setClave(leer.next());
+                    System.out.println("Ingrese el monto que va a depositar");
+                    cliente.setMontoTarjeta(leer.nextInt());
+                    validarDatos = true;
+                    System.out.println("El usuario se creo correctamente");
+                    return cliente;
+
+                } catch (Exception e){
+                    System.out.println("Se encontro un error de sintaxis a la hora de completar los datos, por favor intete de nuevo");
+                    leer.next();
+                }
+            } while (!validarDatos);
+            return null;
         }
 
         public  void usuariosClientes() {
@@ -93,7 +110,6 @@ public class ServicioCliente {
         public  void guardarClientes() {
             Cliente cliente = crearCliente();
             nuevosClientes.add(cliente);
-            System.out.println("Su usuario fue creado correctamente");
         }
 
         public  void validarCuenta() {
@@ -119,13 +135,13 @@ public class ServicioCliente {
                 System.out.println("Opcion 1: Hacer un deposito");
                 System.out.println("Opcion 2: Hacer una transferencia");
                 System.out.println("Opcion 3: Extraer dinero");
-                System.out.println("Opcion 4: Quiero volver al menu");
+                System.out.println("Opcion 4: Consultar dinero en cuenta");
+                System.out.println("Opcion 5: Quiero volver al menu");
                 movimiento = leer.nextInt();
                 switch (movimiento) {
                     case 1:
                         System.out.println("Cuanto dinero quiere depositar?");
                         depositarDinero(c);
-
                         break;
                     case 2:
                         System.out.println("Coloque el usuario al que le quiere hacer la transferencia?");
@@ -136,13 +152,17 @@ public class ServicioCliente {
                         extraerDinero(c);
                         break;
                     case 4:
+                        System.out.println("Consultar dinero en cuenta");
+                        consultarDinero(c);
+                        break;
+                    case 5:
                         System.out.println("Volver al menu principal");
                         break;
                     default:
                         System.out.println("Lo siento esa no es una opcion correcta por lo que vas a volver a menu usuario");
                         break;
                 }
-            } while (movimiento != 4);
+            } while (movimiento != 5);
 
         }
 
@@ -176,6 +196,10 @@ public class ServicioCliente {
             dinero = leer.nextInt();
             cliente.setMontoTarjeta(cliente.getMontoTarjeta() - dinero);
             System.out.println("El dinero actual de la cuenta es " + cliente.getMontoTarjeta());
+        }
+
+        public void consultarDinero (Cliente cliente){
+            System.out.println("El dinero actual de la cuenta es de: " + cliente.getMontoTarjeta());
         }
 
 
